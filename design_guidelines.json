@@ -1,0 +1,116 @@
+{
+  "project_name": "Junagadh CPE Study Chapter (ICAI)",
+  "theme": "Light",
+  "archetype": "4 - Swiss & High-Contrast (Adapted for Professional Corporate Body)",
+  "core_principles": [
+    "Authority and Clarity: Ensure the highest standard of professionalism, appealing to Chartered Accountants.",
+    "Bento Grids for Density: Data-heavy areas like noticeboards and event lists should use strict bento layouts.",
+    "Color is Function: Use navy blue to establish trust, with high contrast typography for readability.",
+    "Mobile-First Navigation: Clear hierarchy with easy access to circulars and registrations on smaller devices."
+  ],
+  "typography": {
+    "headings_font": "Outfit",
+    "body_font": "IBM Plex Sans",
+    "scales": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none font-bold",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-snug font-semibold",
+      "h3": "text-xl sm:text-2xl font-semibold",
+      "h4": "text-lg sm:text-xl font-medium",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm uppercase tracking-[0.2em]"
+    },
+    "guidelines": "Do not center-align headings unless necessary for hero symmetry. Always use left alignment for forms and dense content."
+  },
+  "colors": {
+    "background": "#FFFFFF",
+    "surface": "#F8FAFC",
+    "surface_secondary": "#F1F5F9",
+    "primary": "#0A1E3F",
+    "primary_hover": "#173059",
+    "accent": "#0284C7",
+    "accent_hover": "#0369A1",
+    "text_main": "#0F172A",
+    "text_muted": "#475569",
+    "border": "#E2E8F0"
+  },
+  "layout_and_spacing": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "section_padding": "py-16 md:py-24",
+    "component_padding": "p-6 sm:p-8",
+    "gap_system": "gap-6 md:gap-8 lg:gap-12",
+    "grid_strategy": "Use asymmetric bento grid for home updates (md:grid-cols-12, span 8 and span 4) to break monotony while retaining corporate rigidity."
+  },
+  "components": {
+    "header": "Crystal Glass style if sticky (bg-white/90 backdrop-blur-xl border-b border-slate-200), containing Logo, Navigation, and a solid primary CTA for Login/Contact.",
+    "footer": "Dark Theme Footer (bg-[#0A1E3F] text-white) to anchor the page, massive spacing (py-20), clear columns for quick links.",
+    "buttons": "Sharp corners or subtle rounded (rounded-sm). Primary: bg-[#0A1E3F] text-white hover:bg-[#173059]. Secondary: border border-[#0A1E3F] text-[#0A1E3F] hover:bg-slate-50.",
+    "cards": "Flat background (bg-white), 1px subtle border (border-slate-200), no heavy shadow by default. Hover: shadow-lg, -translate-y-1.",
+    "noticeboard_table": "Shadcn Table. Crisp borders, alternating row colors (bg-slate-50), hover states for PDF downloads."
+  },
+  "interactions_and_motion": {
+    "hover": "All interactive elements must change state visually. Text contrast must remain accessible.",
+    "transitions": "transition-all duration-200 ease-in-out",
+    "page_load": "Framer motion for gentle upward fade-ins on scroll (staggered for lists)."
+  },
+  "assets": {
+    "icon_library": "@phosphor-icons/react",
+    "images": [
+      {
+        "category": "hero_carousel",
+        "description": "Abstract corporate navy background for primary hero overlay",
+        "url": "https://static.prod-images.emergentagent.com/jobs/6efac5fb-d201-4e5c-abc4-e86d2252a83b/images/889f15a1f817f89f336b7ee096bc8b0d44c11d1f0ae5d119ab1bc99ba7fccc53.png"
+      },
+      {
+        "category": "hero_carousel",
+        "description": "Modern office building exterior for professional vibe",
+        "url": "https://static.prod-images.emergentagent.com/jobs/6efac5fb-d201-4e5c-abc4-e86d2252a83b/images/e86dcc6cd9f314b23fde1184defa5c9137f1b6bf0ae82dc42a06dcfd129cc111.png"
+      },
+      {
+        "category": "chairman_message",
+        "description": "Professional portrait of the Chairman",
+        "url": "https://static.prod-images.emergentagent.com/jobs/6efac5fb-d201-4e5c-abc4-e86d2252a83b/images/23d7b973ea96be7244d79c46f3a855c3e223ae75b535b1315e7e1770f2d64488.png"
+      },
+      {
+        "category": "secretary_message",
+        "description": "Professional portrait of the Secretary",
+        "url": "https://static.prod-images.emergentagent.com/jobs/6efac5fb-d201-4e5c-abc4-e86d2252a83b/images/1e2e7c22abf9b3aa40a5085dc2781e53210bb9a1e3e6ca121ee2906a5863a5e8.png"
+      },
+      {
+        "category": "events_seminars",
+        "description": "Audience at a corporate seminar",
+        "url": "https://images.pexels.com/photos/9275222/pexels-photo-9275222.jpeg"
+      },
+      {
+        "category": "events_seminars",
+        "description": "Corporate seminar event",
+        "url": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzF8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBzZW1pbmFyJTIwZXZlbnR8ZW58MHx8fHwxNzgwMTU5NjU1fDA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "about_chapter",
+        "description": "Business professional meeting",
+        "url": "https://images.pexels.com/photos/6950031/pexels-photo-6950031.jpeg"
+      },
+      {
+        "category": "gallery",
+        "description": "Professionals discussing in office",
+        "url": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMG1lZXRpbmd8ZW58MHx8fHwxNzgwMTU5NjU1fDA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "gallery",
+        "description": "Modern office building exterior for professional vibe",
+        "url": "https://images.pexels.com/photos/29358911/pexels-photo-29358911.jpeg"
+      }
+    ]
+  },
+  "testing": {
+    "requirements": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case."
+  },
+  "instructions_to_main_agent": [
+    "Use pure HTML and Tailwind CSS for the main marketing/informational layout.",
+    "Ensure the hero overlay on images is NEVER darker than bg-black/50, and consider gradient overlays (e.g., bg-gradient-to-r from-[#0A1E3F]/90 to-transparent) to ensure readability without killing the image.",
+    "Implement heavily customized Shadcn UI for structured data: Data tables for Noticeboard/Newsletters, Cards for Events, and Dialogs for registrations.",
+    "Use @phosphor-icons/react for professional duotone icons.",
+    "Keep standard pages aligned left; use high-contrast text to ensure accessibility.",
+    "Provide empty state UI for events/notices if no data is found."
+  ]
+}

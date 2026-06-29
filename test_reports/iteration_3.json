@@ -1,0 +1,69 @@
+{
+  "summary": "Verified P1 Admin Panel + Members Directory approval flow end-to-end. 37/37 pytest cases pass (auth, stats, gallery seed, CRUD for events/newsletters/notices/committee/gallery, upload+/api/files round-trip, directory approval/reject/delete, submissions viewers). UI Playwright run covers admin login (success + wrong password + protected-route redirect), 8 overview stat cards, public directory submission -> pending state hidden from public list -> admin approve -> appears publicly, reject keeps hidden, delete cleans up, submissions tabs (library/contact/registrations), Batch 749 gallery seeded, and logout invalidates /admin access. No regressions detected.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Admin entity Add/Edit modals (Events, Newsletters, Notices, Gallery)",
+        "issues": [
+          "Date inputs use the browser-default HTML5 date picker (input type='date', mm/dd/yyyy). Project guideline prefers a shadcn-style calendar component for consistent UI across browsers. Functional, but inconsistent with the rest of the app's look."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_admin_api.py",
+    "/app/backend/tests/test_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "(Optional, low priority) Replace native HTML date picker in admin entity forms with shadcn/ui Calendar for consistent UX.",
+    "(Optional) Inputs inside admin entity form modal lack 'name' attributes and dedicated data-testid per field; add e.g. data-testid={`field-${f.name}`} to make field-level UI automation more robust (works fine functionally today).",
+    "(Optional) /app/backend/tests/test_api.py from iteration_2 asserts events/notices/gallery are empty arrays. Now that gallery has 3 seeded photos, the old test_gallery_empty assertion would fail if run. The new test_admin_api.py supersedes those checks; recommend deleting or updating the stale TestDemoRemoved class in test_api.py."
+  ],
+  "critical_code_review_comments": [
+    "server.py still uses deprecated FastAPI @app.on_event('startup'|'shutdown'). Migrate to lifespan context manager (warning only, not breaking).",
+    "JWT secret is fine and 64-char hex, but token TTL is 12h with no refresh endpoint; consider adding /api/auth/refresh if longer admin sessions are needed.",
+    "Brute-force lockout uses identifier = ip:email — behind a proxy this could be the proxy IP for all users. Verify request.client.host returns real client IP via X-Forwarded-For in this ingress setup before relying on it for production lockout.",
+    "POST /api/admin/upload has no MIME / size validation; an admin could upload arbitrary content. Low risk (admin-only) but add a max size + allowed-types whitelist.",
+    "GET /api/files/{file_id} is unauthenticated and returns any uploaded asset — intended for serving public images, but document this so admins don't upload sensitive PDFs expecting privacy.",
+    "DirectoryManager component in Admin.js uses window.confirm for delete; works but inconsistent with other shadcn dialogs."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_admin_api.py (new — 37 tests)"
+  ],
+  "success_rate": { "backend": "100% (37/37)", "frontend": "100% — all critical admin flows passed" },
+  "test_credentials": "admin@junagadhcpe.org / JunagadhCPE@2026 (matches /app/memory/test_credentials.md)",
+  "seed_data_creation": "Tests create TEST_-prefixed events, newsletters, notices, committee, gallery, contact, library and directory entries; all CRUD-cycle test entities are deleted at the end of each test. Two committee+gallery delete operations cleaned themselves up. Real data preserved: cm-001, cm-002, nl-june-2026, gal-749-d1/2/3.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Iteration 2's /app/backend/tests/test_api.py contains a stale TestDemoRemoved class that expects gallery to be empty — now seeded with 3 Batch 749 photos. Use /app/backend/tests/test_admin_api.py going forward, which covers the current schema and admin flows. Admin auth uses Bearer JWT in Authorization header (NOT cookies), token stored in localStorage key 'cpe_admin_token'. Public POST /api/directory/register creates status='pending'; only status='approved' shows on public GET /api/directory. Brute-force lockout is keyed by ip:email and locks for 15 min after 5 fails — be aware if testing wrong-password flows repeatedly. Storage uses Emergent object store via init/put_object; /api/admin/upload returns {'url': '/api/files/<id>'} and resolveAsset prefixes REACT_APP_BACKEND_URL on the frontend.",
+  "verified_flows": [
+    "POST /api/auth/login (200 + token + user role=admin)",
+    "POST /api/auth/login wrong password -> 401 (or 429 after 5 fails)",
+    "GET /api/auth/me (with/without Bearer) -> 200/401",
+    "GET /api/admin/stats returns all 10 counter keys",
+    "Events CRUD via /api/admin/events -> reflected on GET /api/events and /api/events/{id} (delete -> 404)",
+    "Newsletters CRUD reflected on GET /api/newsletters",
+    "Notices CRUD reflected on GET /api/notices",
+    "Committee CRUD; seeded cm-001 + cm-002 untouched after suite",
+    "Gallery CRUD; 3 seeded Batch 749 photos intact after suite",
+    "POST /api/admin/upload -> GET /api/files/{id} returns image bytes",
+    "Public POST /api/directory/register -> status=pending (not on GET /api/directory)",
+    "Admin GET /api/admin/directory lists pending entry; PUT /approve -> appears publicly",
+    "Admin PUT /reject -> stays hidden publicly with status=rejected",
+    "Admin DELETE /api/admin/directory/{id} -> removed from admin list too",
+    "Admin GET /api/admin/{contact,library,event-registrations} return submitted data",
+    "UI: /admin without token -> redirects to /admin/login",
+    "UI: wrong password shows admin-login-error and stays on /admin/login",
+    "UI: correct credentials -> /admin dashboard with 8 stat cards visible",
+    "UI: nav-events / nav-newsletters / nav-notices / nav-committee / nav-gallery / nav-directory / nav-submissions all open their section",
+    "UI: Public directory submit -> success toast, pending entry NOT in list",
+    "UI: Admin Directory tab shows pending row; Approve -> 'approved' badge -> public list shows entry",
+    "UI: Reject -> 'rejected' badge -> public list still hides entry",
+    "UI: Submissions tabs (library/contact/registrations) render without error",
+    "UI: Logout returns to /admin/login; revisiting /admin re-redirects to /admin/login"
+  ]
+}

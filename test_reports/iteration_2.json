@@ -1,0 +1,49 @@
+{
+  "summary": "Full end-to-end retest after demo cleanup + Members Directory feature. 16/16 backend pytest cases pass. All frontend pages load, render real data only, no placeholders. Directory registration with photo, without photo, and search filter all work end-to-end.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "server.py uses deprecated FastAPI '@app.on_event(\"startup\"|\"shutdown\")' API. Consider migrating to lifespan context manager (non-blocking for now, only a deprecation warning).",
+    "Directory photo upload silently swallows storage errors (only logs). User still gets 200 with no photo flag indication. Consider returning a warning field when upload fails so UI can show a soft notice.",
+    "register_directory does not validate email format / phone format / file size or MIME type. Recommend adding basic Pydantic-style validation and max upload size guard to prevent abuse on public endpoint.",
+    "GET /api/directory is unpaginated (limit 1000). Acceptable for now; add pagination when list grows."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_api.py"
+  ],
+  "success_rate": {
+    "backend": "100% (16/16)",
+    "frontend": "100% - all flows verified"
+  },
+  "test_credentials": "None required (all public pages).",
+  "seed_data_creation": "Created 4 directory entries during testing (2 from backend tests TEST_Member_*, 2 from UI tests UI_With_Photo_* / UI_No_Photo_*). These can be left or cleaned by main agent.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend tests rewritten for cleaned data state (committee=2, newsletters=1 June 2026, events/notices/gallery/announcements empty). Directory endpoints fully tested: register with photo (multipart), register without photo, list, photo retrieval, 404 for no-photo member, 422 missing required. UI verified: Directory page form submits, success state appears, list updates, search filters by name/firm/membership; navbar+footer link to /directory; committee shows only Dhruval+Ashish with phones; contact has both phones and no map placeholder; newsletter shows June 2026 with working PDF links; home shows stats + newsletter banner + quick-access (no empty demo grids). No placeholder tokens detected on any page.",
+  "verified_flows": [
+    "GET /api/committee returns 2 real members with phones",
+    "GET /api/newsletters returns only June 2026",
+    "GET /api/events, /notices, /gallery, /announcements all return []",
+    "POST /api/directory/register (with photo) -> 200, photo stored",
+    "POST /api/directory/register (no photo) -> 200",
+    "GET /api/directory lists new members with has_photo flag",
+    "GET /api/directory/photo/{id} returns image/* for member with photo, 404 otherwise",
+    "POST /api/contact -> 200; missing required -> 422",
+    "UI: Directory form -> success state -> member appears in Listed Members; search filters by name, firm, membership_no",
+    "UI: With-photo member uses /api/directory/photo/<id>; without-photo uses ui-avatars.com fallback",
+    "UI: Navbar 'Directory' link routes to /directory; Footer has 'Members Directory' link and both real phone numbers",
+    "UI: Newsletter page Read/Download/Read Now all point to the June 2026 PDF"
+  ]
+}
