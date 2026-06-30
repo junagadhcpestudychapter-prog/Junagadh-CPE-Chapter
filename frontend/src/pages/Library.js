@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Clock, Users, Star, X, ExternalLink, CreditCard } from "lucide-react";
+import { BookOpen, Clock, Users, Star, ExternalLink, CreditCard, ArrowRight } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -17,28 +16,7 @@ const RESOURCES = [
   "Past Exam Papers & Mock Test Papers",
 ];
 
-const LIBRARY_PHOTOS = [
-  {
-    url: "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/eez0c6ve_DSC04953.jpg",
-    caption: "ICAI Reading Room, Junagadh — Inauguration entrance",
-  },
-  {
-    url: "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/7c211jy2_DSC05282.jpg",
-    caption: "Dignitaries at the Reading Room inauguration ceremony",
-  },
-  {
-    url: "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/g9rtxqvr_DSC05128.jpg",
-    caption: "Members of Junagadh CPE Study Chapter at the launch",
-  },
-  {
-    url: "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/8zijtxls_DSC05427.jpg",
-    caption: "CA students at the Reading Room, Junagadh",
-  },
-];
-
 export default function Library() {
-  const [lightbox, setLightbox] = useState(null);
-
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -79,33 +57,21 @@ export default function Library() {
         </div>
       </section>
 
-      {/* Reading Room Photo Gallery */}
-      <section className="py-16 bg-white" data-testid="library-gallery">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
+      {/* Reading Room Photo Gallery — moved to /gallery (album: Reading Room Library) */}
+      <section className="py-12 bg-white border-b border-slate-200" data-testid="library-gallery-cta">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-[#0284C7] mb-1">A Glimpse Inside</p>
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#0A1E3F]">Inside Our Reading Room</h2>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#0A1E3F]">Photos of the Reading Room</h2>
+            <p className="text-slate-600 text-sm mt-1">View inauguration ceremony &amp; chapter event photos in our Gallery.</p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-5">
-            {LIBRARY_PHOTOS.map((photo, i) => (
-              <button
-                key={i}
-                onClick={() => setLightbox(photo)}
-                data-testid={`library-photo-${i}`}
-                className="group text-left rounded-2xl overflow-hidden border border-slate-200 hover-card"
-              >
-                <div className="overflow-hidden aspect-[4/3] bg-slate-100">
-                  <img
-                    src={photo.url}
-                    alt={photo.caption}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <p className="px-4 py-3 text-slate-700 text-sm font-medium">{photo.caption}</p>
-              </button>
-            ))}
-          </div>
+          <Link
+            to="/gallery?album=Reading%20Room%20Library"
+            data-testid="library-view-gallery"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-[#0A1E3F] text-white font-semibold rounded-lg hover:bg-[#0284C7] transition-colors text-sm flex-shrink-0"
+          >
+            View Reading Room Album <ArrowRight size={15} />
+          </Link>
         </div>
       </section>
 
@@ -115,7 +81,7 @@ export default function Library() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Available Resources */}
             <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#0284C7] mb-2">What's Available</p>
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#0284C7] mb-2">What&apos;s Available</p>
               <h2 className="font-heading text-2xl font-bold text-[#0A1E3F] mb-4">Available Resources</h2>
               <div className="bg-white border border-slate-200 rounded-xl p-5">
                 {RESOURCES.map((r, i) => (
@@ -195,26 +161,7 @@ export default function Library() {
         </div>
       </section>
 
-      {/* Lightbox */}
-      {lightbox && (
-        <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-          onClick={() => setLightbox(null)}
-          data-testid="library-lightbox"
-        >
-          <button
-            onClick={() => setLightbox(null)}
-            className="absolute top-5 right-5 text-white/80 hover:text-white"
-            data-testid="library-lightbox-close"
-          >
-            <X size={28} />
-          </button>
-          <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-            <img src={lightbox.url} alt={lightbox.caption} className="w-full max-h-[80vh] object-contain rounded-xl" />
-            <p className="text-center text-white/80 text-sm mt-4">{lightbox.caption}</p>
-          </div>
-        </div>
-      )}
+      {/* Lightbox removed — photos now live in /gallery */}
 
       <Footer />
     </div>

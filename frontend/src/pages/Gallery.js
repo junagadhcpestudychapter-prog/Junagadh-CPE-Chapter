@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { X, Images } from "lucide-react";
 import { resolveAsset } from "../lib/api";
@@ -9,9 +9,10 @@ import Footer from "../components/Footer";
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export default function Gallery() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedAlbum, setSelectedAlbum] = useState("All");
+  const [selectedAlbum, setSelectedAlbum] = useState(searchParams.get("album") || "All");
   const [lightbox, setLightbox] = useState(null);
 
   useEffect(() => {
@@ -19,6 +20,18 @@ export default function Gallery() {
       .then((r) => { setPhotos(r.data); setLoading(false); })
       .catch(() => setLoading(false));
   }, []);
+
+  // Sync URL ?album= → state when user navigates
+  useEffect(() => {
+    const fromUrl = searchParams.get("album");
+    if (fromUrl && fromUrl !== selectedAlbum) setSelectedAlbum(fromUrl);
+  }, [searchParams]);
+
+  const handleAlbumClick = (album) => {
+    setSelectedAlbum(album);
+    if (album === "All") setSearchParams({});
+    else setSearchParams({ album });
+  };
 
   const albums = ["All", ...new Set(photos.map((p) => p.album))];
   const filtered = selectedAlbum === "All" ? photos : photos.filter((p) => p.album === selectedAlbum);
@@ -66,7 +79,7 @@ export default function Gallery() {
           {albums.map((album) => (
             <button
               key={album}
-              onClick={() => setSelectedAlbum(album)}
+              onClick={() => handleAlbumClick(album)}
               data-testid={`album-filter-${album.toLowerCase().replace(/\s/g, "-")}`}
               className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
                 selectedAlbum === album
