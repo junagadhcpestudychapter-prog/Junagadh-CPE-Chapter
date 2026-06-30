@@ -19,20 +19,20 @@ const RESOURCES = [
 
 const LIBRARY_PHOTOS = [
   {
-    url: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/h77kpgis_DSC04956%20%281%29.jpg",
-    caption: "Inauguration of Reading Room – Junagadh (4th March 2024)",
+    url: "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/eez0c6ve_DSC04953.jpg",
+    caption: "ICAI Reading Room, Junagadh — Inauguration entrance",
   },
   {
-    url: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/1xpkyqx8_DSC04958%20%281%29.jpg",
-    caption: "Spacious, fully air-conditioned reading hall",
+    url: "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/7c211jy2_DSC05282.jpg",
+    caption: "Dignitaries at the Reading Room inauguration ceremony",
   },
   {
-    url: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/nxdrmc5y_DSC04959%20%281%29.jpg",
-    caption: "Individual study cubicles with ample seating",
+    url: "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/g9rtxqvr_DSC05128.jpg",
+    caption: "Members of Junagadh CPE Study Chapter at the launch",
   },
   {
-    url: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/wopbb73v_DSC04981%20%281%29.jpg",
-    caption: "ICAI study material & reference book collection",
+    url: "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/8zijtxls_DSC05427.jpg",
+    caption: "CA students at the Reading Room, Junagadh",
   },
 ];
 
