@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Clock, Users, Star, ExternalLink, CreditCard, ArrowRight } from "lucide-react";
+import { BookOpen, Clock, Users, Star, ExternalLink, CreditCard, X } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -16,7 +17,16 @@ const RESOURCES = [
   "Past Exam Papers & Mock Test Papers",
 ];
 
+const READING_ROOM_PHOTOS = [
+  { url: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/h77kpgis_DSC04956%20%281%29.jpg", caption: "Inauguration of Reading Room – Junagadh (4th March 2024)" },
+  { url: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/1xpkyqx8_DSC04958%20%281%29.jpg", caption: "Spacious, fully air-conditioned reading hall" },
+  { url: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/nxdrmc5y_DSC04959%20%281%29.jpg", caption: "Individual study cubicles with ample seating" },
+  { url: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/wopbb73v_DSC04981%20%281%29.jpg", caption: "ICAI study material & reference book collection" },
+];
+
 export default function Library() {
+  const [lightbox, setLightbox] = useState(null);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -57,21 +67,33 @@ export default function Library() {
         </div>
       </section>
 
-      {/* Reading Room Photo Gallery — moved to /gallery (album: Reading Room Library) */}
-      <section className="py-12 bg-white border-b border-slate-200" data-testid="library-gallery-cta">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
+      {/* Reading Room Photo Gallery (inline) */}
+      <section className="py-16 bg-white" data-testid="library-gallery">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
             <p className="text-sm font-semibold uppercase tracking-widest text-[#0284C7] mb-1">A Glimpse Inside</p>
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#0A1E3F]">Photos of the Reading Room</h2>
-            <p className="text-slate-600 text-sm mt-1">View inauguration ceremony &amp; chapter event photos in our Gallery.</p>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#0A1E3F]">Inside Our Reading Room</h2>
           </div>
-          <Link
-            to="/gallery?album=Reading%20Room%20Library"
-            data-testid="library-view-gallery"
-            className="inline-flex items-center gap-2 px-5 py-3 bg-[#0A1E3F] text-white font-semibold rounded-lg hover:bg-[#0284C7] transition-colors text-sm flex-shrink-0"
-          >
-            View Reading Room Album <ArrowRight size={15} />
-          </Link>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {READING_ROOM_PHOTOS.map((photo, i) => (
+              <button
+                key={i}
+                onClick={() => setLightbox(photo)}
+                data-testid={`library-photo-${i}`}
+                className="group text-left rounded-2xl overflow-hidden border border-slate-200 hover-card"
+              >
+                <div className="overflow-hidden aspect-[4/3] bg-slate-100">
+                  <img
+                    src={photo.url}
+                    alt={photo.caption}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <p className="px-4 py-3 text-slate-700 text-sm font-medium">{photo.caption}</p>
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -161,7 +183,26 @@ export default function Library() {
         </div>
       </section>
 
-      {/* Lightbox removed — photos now live in /gallery */}
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setLightbox(null)}
+          data-testid="library-lightbox"
+        >
+          <button
+            onClick={() => setLightbox(null)}
+            className="absolute top-5 right-5 text-white/80 hover:text-white"
+            data-testid="library-lightbox-close"
+          >
+            <X size={28} />
+          </button>
+          <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+            <img src={lightbox.url} alt={lightbox.caption} className="w-full max-h-[80vh] object-contain rounded-xl" />
+            <p className="text-center text-white/80 text-sm mt-4">{lightbox.caption}</p>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>
