@@ -105,33 +105,25 @@ export default function Noticeboard() {
                     </span>
                   </div>
                   <div className="sm:col-span-1 sm:text-center">
-                    <a
-                      href={notice.pdf_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-testid={`download-notice-${notice.id}`}
-                      className="inline-flex items-center gap-1.5 text-[#0284C7] hover:text-[#0369A1] transition-colors font-semibold text-xs px-3 py-1.5 bg-blue-50 rounded hover:bg-blue-100"
-                    >
-                      <Download size={13} />
-                      <span className="sm:hidden">Download PDF</span>
-                    </a>
+                    {notice.pdf_url ? (
+                      <a
+                        href={notice.pdf_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid={`download-notice-${notice.id}`}
+                        className="inline-flex items-center gap-1.5 text-[#0284C7] hover:text-[#0369A1] transition-colors font-semibold text-xs px-3 py-1.5 bg-blue-50 rounded hover:bg-blue-100"
+                      >
+                        <Download size={13} />
+                        <span className="sm:hidden">Download PDF</span>
+                      </a>
+                    ) : (
+                      <span className="text-slate-400 text-xs" data-testid={`no-pdf-${notice.id}`}>—</span>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Disclaimer */}
-      <section className="pb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
-            <Bell size={16} className="text-amber-600 mt-0.5 flex-shrink-0" />
-            <p className="text-amber-700 text-sm">
-              <strong>Note:</strong> PDF downloads are placeholder links. Actual documents will be available once the chapter provides the official files. For any queries, please <Link to="/contact" className="underline">contact the chapter office</Link>.
-            </p>
-          </div>
         </div>
       </section>
 
