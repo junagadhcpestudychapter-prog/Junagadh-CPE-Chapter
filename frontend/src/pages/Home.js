@@ -268,14 +268,8 @@ export default function Home() {
                 <p>
                   I look forward to your continued support and active participation in our chapter's activities.
                 </p>
+                <p className="font-medium text-[#0A1E3F]">Warm regards,<br />CA. Dhruval Kathiriya<br /><span className="text-slate-500 font-normal text-sm">Convener, Junagadh CPE Study Chapter</span></p>
               </div>
-              <Link
-                to="/about"
-                data-testid="chairman-read-more"
-                className="inline-flex items-center gap-2 mt-6 text-[#0284C7] font-semibold hover:text-[#0369A1] transition-colors"
-              >
-                Read More <ArrowRight size={16} />
-              </Link>
             </div>
           </div>
         </div>
