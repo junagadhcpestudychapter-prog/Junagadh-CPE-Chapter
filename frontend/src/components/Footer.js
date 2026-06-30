@@ -58,7 +58,7 @@ export default function Footer() {
                 { label: "Noticeboard", path: "/noticeboard" },
                 { label: "Newsletter", path: "/newsletter" },
                 { label: "Members Directory", path: "/directory" },
-                { label: "Reading Room Library", path: "/library" },
+                { label: "Reading Room", path: "/library" },
                 { label: "Contact Us", path: "/contact" },
               ].map((link) => (
                 <li key={link.path}>

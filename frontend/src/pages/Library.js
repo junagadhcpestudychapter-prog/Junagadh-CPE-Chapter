@@ -49,9 +49,9 @@ export default function Library() {
           <nav className="text-white/60 text-sm mb-3">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <span className="mx-2">/</span>
-            <span className="text-white">Reading Room Library</span>
+            <span className="text-white">Reading Room</span>
           </nav>
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">Reading Room Library</h1>
+          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">Reading Room</h1>
           <p className="text-white/70 mt-3 text-lg max-w-2xl">
             A dedicated study space with professional resources for Chartered Accountants and students in Junagadh.
           </p>
@@ -157,7 +157,7 @@ export default function Library() {
               <div className="bg-white border border-slate-200 rounded-xl p-6" data-testid="library-hours">
                 <div className="flex items-center gap-2 mb-3">
                   <Clock size={18} className="text-[#0284C7]" />
-                  <h3 className="font-heading font-bold text-lg text-[#0A1E3F]">Library Hours</h3>
+                  <h3 className="font-heading font-bold text-lg text-[#0A1E3F]">Reading Room Hours</h3>
                 </div>
                 <div className="space-y-2 text-sm text-slate-600">
                   <div className="flex justify-between border-b border-slate-100 pb-2"><span>Monday – Friday</span><span className="font-medium text-[#0A1E3F]">9:00 AM – 7:00 PM</span></div>
@@ -175,7 +175,7 @@ export default function Library() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-sm font-semibold uppercase tracking-widest text-[#0284C7] mb-2">Guidelines</p>
-            <h2 className="font-heading text-2xl font-bold text-[#0A1E3F]">Library Rules & Regulations</h2>
+            <h2 className="font-heading text-2xl font-bold text-[#0A1E3F]">Reading Room Rules & Regulations</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {[

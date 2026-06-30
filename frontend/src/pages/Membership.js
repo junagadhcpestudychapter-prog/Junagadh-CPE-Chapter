@@ -30,52 +30,6 @@ export default function Membership() {
         </div>
       </div>
 
-      {/* Fee + Benefits */}
-      <section className="py-16" data-testid="membership-main">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            {/* Fee Card */}
-            <div className="bg-[#0A1E3F] rounded-2xl p-10 text-center text-white relative overflow-hidden" data-testid="membership-fee-card">
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#0284C7]/20 rounded-full" />
-              <div className="relative">
-                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <BadgeIndianRupee size={26} className="text-[#0284C7]" />
-                </div>
-                <p className="text-sm uppercase tracking-widest text-[#0284C7] font-semibold">Annual Membership — Members</p>
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLScKXBivGFsfhXTy7uXIhqQX0Y4zWkrnKsGuiLvu4JsNG2-u9w/viewform?usp=header"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="membership-join-btn"
-                  className="inline-flex items-center gap-2 mt-8 px-7 py-3 bg-[#0284C7] text-white font-semibold rounded-lg hover:bg-[#0369A1] transition-colors text-sm"
-                >
-                  Join Now <ArrowRight size={15} />
-                </a>
-              </div>
-            </div>
-
-            {/* Benefits */}
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#0284C7] mb-2">Why Join</p>
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#0A1E3F] mb-6">Membership Benefits</h2>
-              <div className="space-y-5">
-                {BENEFITS.map((b, i) => (
-                  <div key={i} className="flex items-start gap-4" data-testid={`membership-benefit-${i}`}>
-                    <div className="w-10 h-10 rounded-lg bg-[#0284C7]/10 text-[#0284C7] flex items-center justify-center flex-shrink-0">
-                      <b.icon size={18} />
-                    </div>
-                    <div>
-                      <h3 className="font-heading font-semibold text-[#0A1E3F] text-base">{b.title}</h3>
-                      <p className="text-slate-600 text-sm leading-relaxed">{b.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Become a Member */}
       <section className="py-16 bg-[#F8FAFC] border-t border-slate-200" data-testid="membership-join">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,6 +82,52 @@ export default function Membership() {
                 <UserPlus size={16} /> Fill Membership Form
                 <ExternalLink size={14} />
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Fee + Benefits */}
+      <section className="py-16" data-testid="membership-main">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            {/* Fee Card */}
+            <div className="bg-[#0A1E3F] rounded-2xl p-10 text-center text-white relative overflow-hidden" data-testid="membership-fee-card">
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#0284C7]/20 rounded-full" />
+              <div className="relative">
+                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <BadgeIndianRupee size={26} className="text-[#0284C7]" />
+                </div>
+                <p className="text-sm uppercase tracking-widest text-[#0284C7] font-semibold">Annual Membership — Members</p>
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScKXBivGFsfhXTy7uXIhqQX0Y4zWkrnKsGuiLvu4JsNG2-u9w/viewform?usp=header"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="membership-join-btn"
+                  className="inline-flex items-center gap-2 mt-8 px-7 py-3 bg-[#0284C7] text-white font-semibold rounded-lg hover:bg-[#0369A1] transition-colors text-sm"
+                >
+                  Join Now <ArrowRight size={15} />
+                </a>
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#0284C7] mb-2">Why Join</p>
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#0A1E3F] mb-6">Membership Benefits</h2>
+              <div className="space-y-5">
+                {BENEFITS.map((b, i) => (
+                  <div key={i} className="flex items-start gap-4" data-testid={`membership-benefit-${i}`}>
+                    <div className="w-10 h-10 rounded-lg bg-[#0284C7]/10 text-[#0284C7] flex items-center justify-center flex-shrink-0">
+                      <b.icon size={18} />
+                    </div>
+                    <div>
+                      <h3 className="font-heading font-semibold text-[#0A1E3F] text-base">{b.title}</h3>
+                      <p className="text-slate-600 text-sm leading-relaxed">{b.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

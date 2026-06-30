@@ -18,7 +18,7 @@ const navLinks = [
   },
   { label: "Directory", path: "/directory" },
   { label: "Resources", path: "/resources" },
-  { label: "Library", path: "/library" },
+  { label: "Reading Room", path: "/library" },
   { label: "Contact", path: "/contact" },
 ];
 
