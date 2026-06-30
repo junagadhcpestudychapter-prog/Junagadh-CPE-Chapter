@@ -38,7 +38,7 @@ const HERO_SLIDES = [
 const STATS = [
   { value: "100+", label: "Active Members", icon: Users },
   { value: "15+", label: "Events per Year", icon: Calendar },
-  { value: "WIRC", label: "ICAI Region", icon: Award },
+  { value: "Since 2018", label: "Year Established", icon: Award },
 ];
 
 const QUICK_ACCESS = [
