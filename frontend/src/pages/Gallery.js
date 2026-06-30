@@ -119,7 +119,7 @@ export default function Gallery() {
                   <img
                     src={resolveAsset(photo.photo_url)}
                     alt={photo.title}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-[#0A1E3F]/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-start justify-end p-3">
                     <span className="text-white/60 text-xs mb-0.5">{photo.album}</span>
