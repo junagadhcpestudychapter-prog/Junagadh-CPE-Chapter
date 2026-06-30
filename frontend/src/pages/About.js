@@ -171,11 +171,11 @@ export default function About() {
                 { value: "3.5 Lakh+", label: "Members Worldwide" },
                 { value: "8 Lakh+", label: "Students Enrolled" },
                 { value: "5", label: "Regional Councils" },
-                { value: "Since 1949", label: "ICAI Established" },
+                { value: "Since 1949", label: "" },
               ].map((s, i) => (
                 <div key={i} className="bg-white/10 rounded-xl p-6 text-center">
                   <p className="font-heading text-3xl font-bold text-white">{s.value}</p>
-                  <p className="text-white/60 text-sm mt-1">{s.label}</p>
+                  {s.label && <p className="text-white/60 text-sm mt-1">{s.label}</p>}
                 </div>
               ))}
             </div>

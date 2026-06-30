@@ -38,7 +38,7 @@ const HERO_SLIDES = [
 const STATS = [
   { value: "100+", label: "Active Members", icon: Users },
   { value: "15+", label: "Events per Year", icon: Calendar },
-  { value: "Since 2018", label: "Year Established", icon: Award },
+  { value: "Since 2018", label: "", icon: Award },
 ];
 
 const QUICK_ACCESS = [
@@ -162,7 +162,7 @@ export default function Home() {
             {STATS.map((s, i) => (
               <div key={i} className="py-8 px-6 text-center">
                 <p className="font-heading text-2xl sm:text-3xl font-bold text-white mb-1">{s.value}</p>
-                <p className="text-white/60 text-xs sm:text-sm">{s.label}</p>
+                {s.label && <p className="text-white/60 text-xs sm:text-sm">{s.label}</p>}
               </div>
             ))}
           </div>
