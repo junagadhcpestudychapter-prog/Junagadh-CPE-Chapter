@@ -17,7 +17,7 @@ const PAST_CONVENERS = [
   { name: "CA Anand Unadkat", year: "2022-23", photo: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/921zsv4d_Anand%20Unadkat.jpeg" },
   { name: "CA Hetal Devani", year: "2023-24", photo: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/69sovoji_CA%20Hetal%20Dewani%20f.png" },
   { name: "CA Yash Karia", year: "2024-25", photo: "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/c3446h72_yash%20karia.png" },
-  { name: "CA Hiren Devani", year: "2025-26", photo: dummy("Hiren Devani") },
+  { name: "CA Hiren Devani", year: "2025-26", photo: "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/3konkfrk_ChatGPT%20Image%20Jun%2029%2C%202026%2C%2007_52_05%20PM.png" },
 ];
 
 export default function About() {
