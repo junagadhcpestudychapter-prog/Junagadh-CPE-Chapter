@@ -199,11 +199,11 @@ export default function About() {
             <div className="bg-[#0A1E3F] rounded-2xl p-8 text-center text-white" data-testid="membership-fee-card">
               <p className="text-sm uppercase tracking-widest text-[#0284C7] font-semibold">Annual Membership</p>
               <Link
-                to="/contact"
+                to="/membership"
                 data-testid="membership-join-btn"
                 className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-[#0284C7] text-white font-semibold rounded-lg hover:bg-[#0369A1] transition-colors text-sm"
               >
-                Contact to Join <ArrowRight size={15} />
+                Pay Your Annual Membership Fees <ArrowRight size={15} />
               </Link>
             </div>
 

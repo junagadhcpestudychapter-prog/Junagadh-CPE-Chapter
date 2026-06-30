@@ -75,7 +75,7 @@ export default function Footer() {
             <h4 className="font-heading font-semibold text-base mt-6 mb-4 text-white">ICAI Resources</h4>
             <ul className="space-y-2">
               {[
-                { label: "ICAI National", url: "https://www.icai.org" },
+                { label: "ICAI", url: "https://www.icai.org" },
                 { label: "CPE Portal", url: "https://www.cpeicai.org" },
                 { label: "WIRC of ICAI", url: "https://www.wirc-icai.org" },
               ].map((link) => (
