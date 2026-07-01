@@ -2,9 +2,8 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "resolutions": {
-    "ajv": "6.12.6",
-    "ajv-keywords": "3.5.2"
+  "overrides": {
+    "ajv": "6.12.6"
   },
   "dependencies": {
     "@hookform/resolvers": "5.0.1",
