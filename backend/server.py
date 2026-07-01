@@ -221,6 +221,7 @@ JUNE_NEWSLETTER = {
 }
 
 SEED_GALLERY_PHOTOS = [
+    # ── Batch 749 – AI Course ────────────────────────────────────────────
     {"id": "gal-749-d1", "title": "Batch 749 – AI Course (Day 1)", "album": "Batch 749 – AI Course",
      "event_date": "2026-05-01",
      "photo_url": "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/l6faewmi_Day%201%20Batch%20749%20AI%20L%201.jpeg"},
@@ -230,6 +231,49 @@ SEED_GALLERY_PHOTOS = [
     {"id": "gal-749-d3", "title": "Batch 749 – AI Course (Day 3)", "album": "Batch 749 – AI Course",
      "event_date": "2026-05-03",
      "photo_url": "https://customer-assets.emergentagent.com/job_53fa025c-5b53-4c2a-bfbe-05787af0cf31/artifacts/ygl8gu8r_Day%203%20Batch%20749%20AI%20L%201.jpeg"},
+
+    # ── Reading Room Library (Inauguration – 4 March 2024) ───────────────
+    {"id": "gal-rr-01", "title": "ICAI Reading Room, Junagadh — Inauguration entrance",
+     "album": "Reading Room Library", "event_date": "2024-03-04",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/eez0c6ve_DSC04953.jpg"},
+    {"id": "gal-rr-02", "title": "Dignitaries at the Reading Room inauguration ceremony",
+     "album": "Reading Room Library", "event_date": "2024-03-04",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/7c211jy2_DSC05282.jpg"},
+    {"id": "gal-rr-03", "title": "Members of Junagadh CPE Study Chapter at the launch",
+     "album": "Reading Room Library", "event_date": "2024-03-04",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/g9rtxqvr_DSC05128.jpg"},
+    {"id": "gal-rr-04", "title": "CA students at the Reading Room, Junagadh",
+     "album": "Reading Room Library", "event_date": "2024-03-04",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/8zijtxls_DSC05427.jpg"},
+
+    # ── Seminar 20.06.2026 ───────────────────────────────────────────────
+    {"id": "gal-sem2026-01", "title": "Group photo of speakers, dignitaries & participants — Seminar 20.06.2026",
+     "album": "Seminar 20.06.2026", "event_date": "2026-06-20",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/w0v1zzsp_WhatsApp%20Image%202026-06-30%20at%2012.21.11%20PM.jpeg"},
+    {"id": "gal-sem2026-02", "title": "Seminar hall set-up at Junagadh on 20.06.2026",
+     "album": "Seminar 20.06.2026", "event_date": "2026-06-20",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/q4rympte_WhatsApp%20Image%202026-06-30%20at%2011.51.56%20AM.jpeg"},
+    {"id": "gal-sem2026-03", "title": "CA. Jiten Trivedi receiving felicitation at the seminar",
+     "album": "Seminar 20.06.2026", "event_date": "2026-06-20",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/gdag16zn_WhatsApp%20Image%202026-06-30%20at%2011.52.02%20AM.jpeg"},
+    {"id": "gal-sem2026-04", "title": "Felicitation of a senior member by the chapter",
+     "album": "Seminar 20.06.2026", "event_date": "2026-06-20",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/hyjuepaf_WhatsApp%20Image%202026-06-30%20at%2011.52.01%20AM.jpeg"},
+    {"id": "gal-sem2026-05", "title": "Token of appreciation presented to the speaker",
+     "album": "Seminar 20.06.2026", "event_date": "2026-06-20",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/oklzib1p_WhatsApp%20Image%202026-06-30%20at%2011.53.51%20AM.jpeg"},
+    {"id": "gal-sem2026-06", "title": "Token of appreciation presented at the seminar",
+     "album": "Seminar 20.06.2026", "event_date": "2026-06-20",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/1s2amp4r_WhatsApp%20Image%202026-06-30%20at%2011.55.34%20AM.jpeg"},
+    {"id": "gal-sem2026-07", "title": "Token of appreciation presented to participant",
+     "album": "Seminar 20.06.2026", "event_date": "2026-06-20",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/3mtf0vrz_WhatsApp%20Image%202026-06-30%20at%2012.35.57%20PM.jpeg"},
+    {"id": "gal-sem2026-08", "title": "Felicitation of speaker at the seminar",
+     "album": "Seminar 20.06.2026", "event_date": "2026-06-20",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/6riwoyod_WhatsApp%20Image%202026-06-30%20at%2012.35.58%20PM.jpeg"},
+    {"id": "gal-sem2026-09", "title": "Felicitation by the chapter at the seminar",
+     "album": "Seminar 20.06.2026", "event_date": "2026-06-20",
+     "photo_url": "https://customer-assets.emergentagent.com/job_cpe-chapter-deploy/artifacts/7qsmsyet_WhatsApp%20Image%202026-06-30%20at%2012.35.58%20PM.jpeg"},
 ]
 
 
@@ -251,13 +295,15 @@ async def setup_database():
         await db.committee.update_one({"id": member["id"]}, {"$set": member}, upsert=True)
     await db.newsletters.update_one({"id": "nl-june-2026"}, {"$set": JUNE_NEWSLETTER}, upsert=True)
 
-    if not await db.migrations.find_one({"_id": "seed_gallery_v1"}):
-        if await db.gallery.count_documents({}) == 0:
-            await db.gallery.insert_many([dict(g) for g in SEED_GALLERY_PHOTOS])
+    # Idempotent gallery baseline — upserts each seed photo by id.
+    # User-added photos (unique UUID ids) remain untouched.
+    for photo in SEED_GALLERY_PHOTOS:
+        await db.gallery.update_one({"id": photo["id"]}, {"$set": dict(photo)}, upsert=True)
+    if not await db.migrations.find_one({"_id": "seed_gallery_v2"}):
         await db.migrations.insert_one(
-            {"_id": "seed_gallery_v1", "applied_at": datetime.now(timezone.utc).isoformat()}
+            {"_id": "seed_gallery_v2", "applied_at": datetime.now(timezone.utc).isoformat()}
         )
-        logger.info("Seeded gallery photos")
+        logger.info(f"Seeded {len(SEED_GALLERY_PHOTOS)} gallery photos (baseline)")
 
     # Migrate any previously "active" directory entries to "approved"
     await db.directory.update_many({"status": "active"}, {"$set": {"status": "approved"}})
